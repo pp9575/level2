@@ -28,6 +28,8 @@ public class MyList <T> {
             }
             objects = newObjects;
         }
+        objects[size] = element;
+        size++;
     }
 }
 
