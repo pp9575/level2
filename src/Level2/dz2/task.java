@@ -24,9 +24,9 @@ public class task {
         // генерируется пять случайных чисел используя переменную random ( в диапазоне до 10 ).
         // +5. Создать единый стрим со всеми числами из списков пользователей.
         // +6. Умножить числа на 10
-        // 7. Посчитать сумму всех чисел с помощью reduce
-        // 8. Вывести на экран
-        // 9. В случае если integers пустой, то должно выводиться на экран "0"
+        // +7. Посчитать сумму всех чисел с помощью reduce
+        // +8. Вывести на экран
+        // +9. В случае если integers пустой, то должно выводиться на экран "0"
         // Внимание! Все операции должны выполняться одной цепочкой integers.stream().map() ...
         // никаких переменных не должно появиться
         // Ожидаемый результат вывода на экран:
@@ -36,18 +36,17 @@ public class task {
                 .filter(e -> e > 4)
                 .distinct()
                 .map(User::new)
-               .map( e ->{
+               .map( e -> {
                            ArrayList<Integer> result = new ArrayList<>();
                            for (int i = 0; i < e.getNumber(); i++) {
                                result.add(random.nextInt(10));
                            }
-
                    return result;
                })
                .flatMap(Collection::stream)
                .map(e -> e * 10)
                .reduce((integer, integer2) -> integer + integer2);
-        System.out.println(output);
+        System.out.println(output.orElse(0));
 
 
 
