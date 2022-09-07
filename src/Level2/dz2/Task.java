@@ -1,10 +1,8 @@
 package Level2.dz2;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class task {
+public class Task {
     public static void main(String[] args) {
 
 
@@ -61,8 +59,8 @@ public class task {
         // 1. Узнать, есть ли в lists хотя бы один список, который содержит сумму всех элементов вложенного листа
         // равную 12
         lists.stream()
-                .filter(e -> e.size() > 0)
-                .filter(e -> e.stream().reduce(Integer::sum).get() == 12)
+
+                .filter(e -> e.stream().reduce(Integer::sum).orElse(0) == 12)
                 .forEach(System.out::print);
 
 
