@@ -1,10 +1,8 @@
 package Level2.dz4;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.sql.Time;
 import java.util.Arrays;
 
 public class Runner {
@@ -23,7 +21,6 @@ public class Runner {
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException {
         UserMeta yury = new UserMeta("Yury", 20);
-
         getMetaDataClass(yury);
         getMetaDataAttr(yury);
         getMetaDataMethod(yury);
@@ -42,7 +39,6 @@ public class Runner {
             if (field.isAnnotationPresent(GetMetaData.class)) {
                 System.out.println(field.get(userMeta).toString());
             }
-
         }
     }
 
@@ -53,11 +49,8 @@ public class Runner {
                 long timeNow = System.currentTimeMillis();
                 method.invoke(userMeta, "yury");
                 System.out.println(System.currentTimeMillis() - timeNow);
-
             }
         }
-
-
     }
 }
 
